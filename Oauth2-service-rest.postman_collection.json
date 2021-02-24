@@ -1,0 +1,1139 @@
+{
+	"info": {
+		"_postman_id": "45f73325-ea85-4681-af9a-4e65b74f02e0",
+		"name": "Oauth2-service-rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register Exist User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:25:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:25:30.938+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"User already exist\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register with different confirmation password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Ve\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:30:54 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:30:54.851+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Passwords must match\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register with wrong email formt",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:29:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:29:08.782+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Validation failed for classes [ru.atom.test.task.auth.model.entity.UserEntity] during persist time for groups [javax.validation.groups.Default, ]\\nList of constraint violations:[\\n\\tConstraintViolationImpl{interpolatedMessage='email определен в неверном формате', propertyPath=email, rootBeanClass=class ru.atom.test.task.auth.model.entity.UserEntity, messageTemplate='{javax.validation.constraints.Email.message}'}\\n]\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register with shot password",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Ve\",\r\n    \"confirmPassword\":\"Ve\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:30:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:30:17.079+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Password length less than 6\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register with non cyrilic name",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Миhаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:26:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:26:14.347+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Not Cyrillic symbol in name\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register with wrong phone format",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"1999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:27:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:27:02.838+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Wrong starts number\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register with wrong pnone length",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:28:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:28:04.810+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Wrong phone number length\",\n    \"path\": \"/oauth/user\"\n}"
+				},
+				{
+					"name": "Register User Answer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:25:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Михаил\",\n    \"phone\": \"9999999999\",\n    \"email\": \"sazonov91@gmail.com\",\n    \"password\": \"Very_Secret_password123\",\n    \"rules\": true,\n    \"subscribe\": false\n}"
+				},
+				{
+					"name": "Register without confirm rule",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":false,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:32:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"timestamp\": \"2021-02-24T20:32:31.536+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"rules must be true\",\n    \"path\": \"/oauth/user\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Generate Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "atom",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "Secret_password123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "9999999999",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Very_Secret_password123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_token",
+							"value": "password",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Generate Token Answer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "9999999999",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Very_Secret_password123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_token",
+									"value": "password",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:20:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTQxOTgzNTYsInVzZXJfbmFtZSI6Ijk5OTk5OTk5OTkiLCJhdXRob3JpdGllcyI6WyJVc2VyIl0sImp0aSI6ImI3NDUzZjU5LTQ0OTItNDYxNS04ZTVjLTk5YTcyNzg2MGZiOSIsImNsaWVudF9pZCI6ImF0b20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.-oHJicYCJbIRev7TxICZRCJspf5dWvWU7j8qz5FpAvE\",\n    \"token_type\": \"bearer\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI5OTk5OTk5OTk5Iiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6ImI3NDUzZjU5LTQ0OTItNDYxNS04ZTVjLTk5YTcyNzg2MGZiOSIsImV4cCI6MTYxNDE5OTg1NiwiYXV0aG9yaXRpZXMiOlsiVXNlciJdLCJqdGkiOiJiMjk1MjRjZC1hZjk2LTQ5MTEtYTYwNy0wM2UwZDNmMTE4ZDAiLCJjbGllbnRfaWQiOiJhdG9tIn0.7mWBeRV4z_aF55_3MoG6M6bPvhoQuIzL_kZ2dNqSfwA\",\n    \"expires_in\": 299,\n    \"scope\": \"read write\",\n    \"jti\": \"b7453f59-4492-4615-8e5c-99a727860fb9\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Check Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Secret_password123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "atom",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTQxOTgzNTYsInVzZXJfbmFtZSI6Ijk5OTk5OTk5OTkiLCJhdXRob3JpdGllcyI6WyJVc2VyIl0sImp0aSI6ImI3NDUzZjU5LTQ0OTItNDYxNS04ZTVjLTk5YTcyNzg2MGZiOSIsImNsaWVudF9pZCI6ImF0b20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.-oHJicYCJbIRev7TxICZRCJspf5dWvWU7j8qz5FpAvE",
+							"description": "Insert the token that is generated in the \"Generate token\" request",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/check_token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"check_token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Check Token Answer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTQxOTgzNTYsInVzZXJfbmFtZSI6Ijk5OTk5OTk5OTkiLCJhdXRob3JpdGllcyI6WyJVc2VyIl0sImp0aSI6ImI3NDUzZjU5LTQ0OTItNDYxNS04ZTVjLTk5YTcyNzg2MGZiOSIsImNsaWVudF9pZCI6ImF0b20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.-oHJicYCJbIRev7TxICZRCJspf5dWvWU7j8qz5FpAvE",
+									"description": "Insert the token that is generated in the \"Generate token\" request",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/check_token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"check_token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:21:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"user_name\": \"9999999999\",\n    \"scope\": [\n        \"read\",\n        \"write\"\n    ],\n    \"active\": true,\n    \"exp\": 1614198356,\n    \"authorities\": [\n        \"User\"\n    ],\n    \"jti\": \"b7453f59-4492-4615-8e5c-99a727860fb9\",\n    \"client_id\": \"atom\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Secret_password123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "atom",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"description": "Insert the token that is generated in the \"Generate token\" request",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI5OTk5OTk5OTk5Iiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6ImI3NDUzZjU5LTQ0OTItNDYxNS04ZTVjLTk5YTcyNzg2MGZiOSIsImV4cCI6MTYxNDE5OTg1NiwiYXV0aG9yaXRpZXMiOlsiVXNlciJdLCJqdGkiOiJiMjk1MjRjZC1hZjk2LTQ5MTEtYTYwNy0wM2UwZDNmMTE4ZDAiLCJjbGllbnRfaWQiOiJhdG9tIn0.7mWBeRV4z_aF55_3MoG6M6bPvhoQuIzL_kZ2dNqSfwA",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Refresh Token Answer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"description": "Insert the token that is generated in the \"Generate token\" request",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI5OTk5OTk5OTk5Iiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6ImI3NDUzZjU5LTQ0OTItNDYxNS04ZTVjLTk5YTcyNzg2MGZiOSIsImV4cCI6MTYxNDE5OTg1NiwiYXV0aG9yaXRpZXMiOlsiVXNlciJdLCJqdGkiOiJiMjk1MjRjZC1hZjk2LTQ5MTEtYTYwNy0wM2UwZDNmMTE4ZDAiLCJjbGllbnRfaWQiOiJhdG9tIn0.7mWBeRV4z_aF55_3MoG6M6bPvhoQuIzL_kZ2dNqSfwA",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Feb 2021 20:21:32 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTQxOTgzOTIsInVzZXJfbmFtZSI6Ijk5OTk5OTk5OTkiLCJhdXRob3JpdGllcyI6WyJVc2VyIl0sImp0aSI6Ijc1ZGQ3NTEyLWY4ZGUtNDU2OS1iZWRmLTE5ZmE5NmE1MzgwMSIsImNsaWVudF9pZCI6ImF0b20iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXX0.PziysnyOVZ3vnp9fxt04mMXyAysZwDET1MlANU-tZtw\",\n    \"token_type\": \"bearer\",\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI5OTk5OTk5OTk5Iiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6Ijc1ZGQ3NTEyLWY4ZGUtNDU2OS1iZWRmLTE5ZmE5NmE1MzgwMSIsImV4cCI6MTYxNDE5OTg5MiwiYXV0aG9yaXRpZXMiOlsiVXNlciJdLCJqdGkiOiI3MTY4YzMxMS00N2RmLTQ0OGEtOTU5Ny05NTc0MzhkZmRmY2YiLCJjbGllbnRfaWQiOiJhdG9tIn0.tWuG5Hl7Qs71_muRlMKY7UnOMoHUnQBpo0RBWmsZuEY\",\n    \"expires_in\": 299,\n    \"scope\": \"read write\",\n    \"jti\": \"75dd7512-f8de-4569-bedf-19fa96a53801\"\n}"
+				}
+			]
+		}
+	]
+}
