@@ -63,9 +63,9 @@
 							]
 						}
 					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -93,32 +93,36 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "29"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:25:30 GMT"
+							"value": "Thu, 25 Feb 2021 06:35:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
 						},
 						{
 							"key": "Connection",
-							"value": "close"
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:25:30.938+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"User already exist\",\n    \"path\": \"/oauth/user\"\n}"
+					"body": "unsuccess: User already exist"
 				},
 				{
-					"name": "Register with different confirmation password",
+					"name": "Register with wrong pnone length",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Ve\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -138,9 +142,9 @@
 							]
 						}
 					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -168,23 +172,106 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "36"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:30:54 GMT"
+							"value": "Thu, 25 Feb 2021 06:43:05 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
 						},
 						{
 							"key": "Connection",
-							"value": "close"
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:30:54.851+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Passwords must match\",\n    \"path\": \"/oauth/user\"\n}"
+					"body": "unsuccess: Wrong phone number length"
+				},
+				{
+					"name": "Register User Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/oauth/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "7"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 Feb 2021 06:34:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "success"
 				},
 				{
 					"name": "Register with wrong email formt",
@@ -288,9 +375,9 @@
 							]
 						}
 					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -318,23 +405,27 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "38"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:30:17 GMT"
+							"value": "Thu, 25 Feb 2021 06:40:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
 						},
 						{
 							"key": "Connection",
-							"value": "close"
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:30:17.079+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Password length less than 6\",\n    \"path\": \"/oauth/user\"\n}"
+					"body": "Register with shot password"
 				},
 				{
 					"name": "Register with non cyrilic name",
@@ -363,9 +454,9 @@
 							]
 						}
 					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -393,23 +484,27 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "38"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:26:14 GMT"
+							"value": "Thu, 25 Feb 2021 06:41:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
 						},
 						{
 							"key": "Connection",
-							"value": "close"
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:26:14.347+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Not Cyrillic symbol in name\",\n    \"path\": \"/oauth/user\"\n}"
+					"body": "unsuccess: Not Cyrillic symbol in name"
 				},
 				{
 					"name": "Register with wrong phone format",
@@ -438,9 +533,9 @@
 							]
 						}
 					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -468,107 +563,36 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "30"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:27:02 GMT"
+							"value": "Thu, 25 Feb 2021 06:42:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
 						},
 						{
 							"key": "Connection",
-							"value": "close"
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:27:02.838+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Wrong starts number\",\n    \"path\": \"/oauth/user\"\n}"
+					"body": "unsuccess: Wrong starts number"
 				},
 				{
-					"name": "Register with wrong pnone length",
+					"name": "Register with different confirmation password",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/oauth/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"oauth",
-								"user"
-							]
-						}
-					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
-					"header": [
-						{
-							"key": "X-Content-Type-Options",
-							"value": "nosniff"
-						},
-						{
-							"key": "X-XSS-Protection",
-							"value": "1; mode=block"
-						},
-						{
-							"key": "Cache-Control",
-							"value": "no-cache, no-store, max-age=0, must-revalidate"
-						},
-						{
-							"key": "Pragma",
-							"value": "no-cache"
-						},
-						{
-							"key": "Expires",
-							"value": "0"
-						},
-						{
-							"key": "X-Frame-Options",
-							"value": "DENY"
-						},
-						{
-							"key": "Content-Type",
-							"value": "application/json"
-						},
-						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:28:04 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "close"
-						}
-					],
-					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:28:04.810+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"Wrong phone number length\",\n    \"path\": \"/oauth/user\"\n}"
-				},
-				{
-					"name": "Register User Answer",
-					"originalRequest": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Very_Secret_password123\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
+							"raw": "{\r\n    \"name\":\"Михаил\",\r\n    \"phone\":\"9999999999\",\r\n    \"email\":\"sazonov91@gmail.com\",\r\n    \"password\":\"Very_Secret_password123\",\r\n    \"confirmPassword\":\"Ve\",\r\n    \"rules\":true,\r\n    \"subscribe\":false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -590,7 +614,7 @@
 					},
 					"status": "Created",
 					"code": 201,
-					"_postman_previewlanguage": "json",
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -618,15 +642,15 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "31"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:25:05 GMT"
+							"value": "Thu, 25 Feb 2021 06:36:01 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -638,7 +662,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"id\": 1,\n    \"name\": \"Михаил\",\n    \"phone\": \"9999999999\",\n    \"email\": \"sazonov91@gmail.com\",\n    \"password\": \"Very_Secret_password123\",\n    \"rules\": true,\n    \"subscribe\": false\n}"
+					"body": "unsuccess: Passwords must match"
 				},
 				{
 					"name": "Register without confirm rule",
@@ -667,9 +691,9 @@
 							]
 						}
 					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "json",
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
 					"header": [
 						{
 							"key": "X-Content-Type-Options",
@@ -697,23 +721,27 @@
 						},
 						{
 							"key": "Content-Type",
-							"value": "application/json"
+							"value": "text/plain;charset=UTF-8"
 						},
 						{
-							"key": "Transfer-Encoding",
-							"value": "chunked"
+							"key": "Content-Length",
+							"value": "29"
 						},
 						{
 							"key": "Date",
-							"value": "Wed, 24 Feb 2021 20:32:31 GMT"
+							"value": "Thu, 25 Feb 2021 06:43:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
 						},
 						{
 							"key": "Connection",
-							"value": "close"
+							"value": "keep-alive"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"timestamp\": \"2021-02-24T20:32:31.536+0000\",\n    \"status\": 500,\n    \"error\": \"Internal Server Error\",\n    \"message\": \"rules must be true\",\n    \"path\": \"/oauth/user\"\n}"
+					"body": "unsuccess: rules must be true"
 				}
 			]
 		},
